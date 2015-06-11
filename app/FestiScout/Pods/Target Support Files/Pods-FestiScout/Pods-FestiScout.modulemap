@@ -1,0 +1,6 @@
+framework module Pods_FestiScout {
+  umbrella header "Pods-FestiScout-umbrella.h"
+
+  export *
+  module * { export * }
+}

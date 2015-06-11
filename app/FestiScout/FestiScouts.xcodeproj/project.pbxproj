@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A91112311B1B933100345192 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91112301B1B933100345192 /* CardView.swift */; };
+		A91112331B1CB88900345192 /* brooklyncoffee_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91112321B1CB88900345192 /* brooklyncoffee_regular.ttf */; };
+		A91112361B1CB89C00345192 /* Bear_and_loupe_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A91112341B1CB89C00345192 /* Bear_and_loupe_regular.otf */; };
+		A91112371B1CB89C00345192 /* big_noodle_titling.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91112351B1CB89C00345192 /* big_noodle_titling.ttf */; };
+		A92473E71B1FB33400415BE9 /* APIUrls.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92473E61B1FB33400415BE9 /* APIUrls.plist */; };
+		A92473E91B20A6B800415BE9 /* contentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92473E81B20A6B800415BE9 /* contentData.swift */; };
+		A92473EB1B20AE0300415BE9 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92473EA1B20AE0300415BE9 /* TutorialView.swift */; };
+		A92473ED1B20B0D200415BE9 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92473EC1B20B0D200415BE9 /* PageView.swift */; };
+		A94EB2771B21B77800AECFB2 /* nameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EB2761B21B77800AECFB2 /* nameView.swift */; };
+		A96DDA151B1918690077B02F /* BadgeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA141B1918690077B02F /* BadgeData.swift */; };
+		A96DDA171B19F6DD0077B02F /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA161B19F6DD0077B02F /* BadgeCell.swift */; };
+		A96DDA191B1A52C50077B02F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA181B1A52C50077B02F /* DetailViewController.swift */; };
+		A96DDA1B1B1A590D0077B02F /* mapDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA1A1B1A590D0077B02F /* mapDrawView.swift */; };
+		A9A82F1B1B189070002A1896 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A82F1A1B189070002A1896 /* MainViewController.swift */; };
+		A9C1F6171B1682E200660FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6161B1682E200660FBA /* AppDelegate.swift */; };
+		A9C1F6191B1682E200660FBA /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6181B1682E200660FBA /* FirstLaunchViewController.swift */; };
+		A9C1F61B1B1682E200660FBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F61A1B1682E200660FBA /* Images.xcassets */; };
+		A9C1F61E1B1682E200660FBA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F61C1B1682E200660FBA /* LaunchScreen.xib */; };
+		A9C1F62A1B1682E200660FBA /* FestiScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6291B1682E200660FBA /* FestiScoutTests.swift */; };
+		A9EE62611B27AB6100B463B8 /* groupCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE62601B27AB6100B463B8 /* groupCameraView.swift */; };
+		A9EE62631B2A2D6500B463B8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE62621B2A2D6500B463B8 /* CameraView.swift */; };
+		C0596854FEC575B8EFE61353 /* Pods_FestiScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97452D1304717B9D12128ECA /* Pods_FestiScout.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9C1F6241B1682E200660FBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C1F6091B1682E200660FBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9C1F6101B1682E200660FBA;
+			remoteInfo = FestiScout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		97452D1304717B9D12128ECA /* Pods_FestiScout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FestiScout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91112301B1B933100345192 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A91112321B1CB88900345192 /* brooklyncoffee_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brooklyncoffee_regular.ttf; sourceTree = "<group>"; };
+		A91112341B1CB89C00345192 /* Bear_and_loupe_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bear_and_loupe_regular.otf; sourceTree = "<group>"; };
+		A91112351B1CB89C00345192 /* big_noodle_titling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_noodle_titling.ttf; sourceTree = "<group>"; };
+		A92473E61B1FB33400415BE9 /* APIUrls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIUrls.plist; sourceTree = "<group>"; };
+		A92473E81B20A6B800415BE9 /* contentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contentData.swift; sourceTree = "<group>"; };
+		A92473EA1B20AE0300415BE9 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		A92473EC1B20B0D200415BE9 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		A94EB2761B21B77800AECFB2 /* nameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nameView.swift; sourceTree = "<group>"; };
+		A96DDA141B1918690077B02F /* BadgeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeData.swift; sourceTree = "<group>"; };
+		A96DDA161B19F6DD0077B02F /* BadgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
+		A96DDA181B1A52C50077B02F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A96DDA1A1B1A590D0077B02F /* mapDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapDrawView.swift; sourceTree = "<group>"; };
+		A9A82F1A1B189070002A1896 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A9C1F6111B1682E200660FBA /* FestiScouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestiScouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9C1F6151B1682E200660FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9C1F6161B1682E200660FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9C1F6181B1682E200660FBA /* FirstLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewController.swift; sourceTree = "<group>"; };
+		A9C1F61A1B1682E200660FBA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A9C1F61D1B1682E200660FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A9C1F6231B1682E200660FBA /* FestiScoutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FestiScoutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9C1F6281B1682E200660FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9C1F6291B1682E200660FBA /* FestiScoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestiScoutTests.swift; sourceTree = "<group>"; };
+		A9EE62601B27AB6100B463B8 /* groupCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupCameraView.swift; sourceTree = "<group>"; };
+		A9EE62621B2A2D6500B463B8 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		BE1F4C45849F781A54B59794 /* Pods-FestiScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FestiScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-FestiScout/Pods-FestiScout.release.xcconfig"; sourceTree = "<group>"; };
+		D09444891523DB56C1005767 /* Pods-FestiScout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FestiScout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FestiScout/Pods-FestiScout.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9C1F60E1B1682E200660FBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0596854FEC575B8EFE61353 /* Pods_FestiScout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9C1F6201B1682E200660FBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21D99BF0CF85CDA00AF16ACB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97452D1304717B9D12128ECA /* Pods_FestiScout.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A94EB2731B21941700AECFB2 /* First Lauch */ = {
+			isa = PBXGroup;
+			children = (
+				A9C1F6181B1682E200660FBA /* FirstLaunchViewController.swift */,
+				A92473E81B20A6B800415BE9 /* contentData.swift */,
+				A92473EA1B20AE0300415BE9 /* TutorialView.swift */,
+				A92473EC1B20B0D200415BE9 /* PageView.swift */,
+				A94EB2761B21B77800AECFB2 /* nameView.swift */,
+			);
+			name = "First Lauch";
+			sourceTree = "<group>";
+		};
+		A94EB2741B21944400AECFB2 /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				A96DDA1A1B1A590D0077B02F /* mapDrawView.swift */,
+				A9EE62601B27AB6100B463B8 /* groupCameraView.swift */,
+				A9EE62621B2A2D6500B463B8 /* CameraView.swift */,
+			);
+			name = Challenges;
+			sourceTree = "<group>";
+		};
+		A94EB2751B21945A00AECFB2 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A91112341B1CB89C00345192 /* Bear_and_loupe_regular.otf */,
+				A91112351B1CB89C00345192 /* big_noodle_titling.ttf */,
+				A91112321B1CB88900345192 /* brooklyncoffee_regular.ttf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
+		A9C1F6081B1682E200660FBA = {
+			isa = PBXGroup;
+			children = (
+				A9C1F6131B1682E200660FBA /* FestiScouts */,
+				A9C1F6261B1682E200660FBA /* FestiScoutsTests */,
+				A9C1F6121B1682E200660FBA /* Products */,
+				AFB3868D9066750A7C358C62 /* Pods */,
+				21D99BF0CF85CDA00AF16ACB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A9C1F6121B1682E200660FBA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9C1F6111B1682E200660FBA /* FestiScouts.app */,
+				A9C1F6231B1682E200660FBA /* FestiScoutsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9C1F6131B1682E200660FBA /* FestiScouts */ = {
+			isa = PBXGroup;
+			children = (
+				A92473E61B1FB33400415BE9 /* APIUrls.plist */,
+				A9C1F6161B1682E200660FBA /* AppDelegate.swift */,
+				A94EB2731B21941700AECFB2 /* First Lauch */,
+				A9C1F61A1B1682E200660FBA /* Images.xcassets */,
+				A94EB2751B21945A00AECFB2 /* fonts */,
+				A9C1F61C1B1682E200660FBA /* LaunchScreen.xib */,
+				A9C1F6141B1682E200660FBA /* Supporting Files */,
+				A9A82F1A1B189070002A1896 /* MainViewController.swift */,
+				A96DDA141B1918690077B02F /* BadgeData.swift */,
+				A96DDA161B19F6DD0077B02F /* BadgeCell.swift */,
+				A96DDA181B1A52C50077B02F /* DetailViewController.swift */,
+				A94EB2741B21944400AECFB2 /* Challenges */,
+				A91112301B1B933100345192 /* CardView.swift */,
+			);
+			name = FestiScouts;
+			path = FestiScout;
+			sourceTree = "<group>";
+		};
+		A9C1F6141B1682E200660FBA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9C1F6151B1682E200660FBA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9C1F6261B1682E200660FBA /* FestiScoutsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9C1F6291B1682E200660FBA /* FestiScoutTests.swift */,
+				A9C1F6271B1682E200660FBA /* Supporting Files */,
+			);
+			name = FestiScoutsTests;
+			path = FestiScoutTests;
+			sourceTree = "<group>";
+		};
+		A9C1F6271B1682E200660FBA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9C1F6281B1682E200660FBA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AFB3868D9066750A7C358C62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D09444891523DB56C1005767 /* Pods-FestiScout.debug.xcconfig */,
+				BE1F4C45849F781A54B59794 /* Pods-FestiScout.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9C1F6101B1682E200660FBA /* FestiScouts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9C1F62D1B1682E200660FBA /* Build configuration list for PBXNativeTarget "FestiScouts" */;
+			buildPhases = (
+				F1675AFA54D52D5520175B9F /* Check Pods Manifest.lock */,
+				A9C1F60D1B1682E200660FBA /* Sources */,
+				A9C1F60E1B1682E200660FBA /* Frameworks */,
+				A9C1F60F1B1682E200660FBA /* Resources */,
+				9656C1F999696757F046B53C /* Embed Pods Frameworks */,
+				5031C11C5B744864BA268C7E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FestiScouts;
+			productName = FestiScout;
+			productReference = A9C1F6111B1682E200660FBA /* FestiScouts.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9C1F6221B1682E200660FBA /* FestiScoutsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9C1F6301B1682E200660FBA /* Build configuration list for PBXNativeTarget "FestiScoutsTests" */;
+			buildPhases = (
+				A9C1F61F1B1682E200660FBA /* Sources */,
+				A9C1F6201B1682E200660FBA /* Frameworks */,
+				A9C1F6211B1682E200660FBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9C1F6251B1682E200660FBA /* PBXTargetDependency */,
+			);
+			name = FestiScoutsTests;
+			productName = FestiScoutTests;
+			productReference = A9C1F6231B1682E200660FBA /* FestiScoutsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9C1F6091B1682E200660FBA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Joris Handstanger";
+				TargetAttributes = {
+					A9C1F6101B1682E200660FBA = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					A9C1F6221B1682E200660FBA = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = A9C1F6101B1682E200660FBA;
+					};
+				};
+			};
+			buildConfigurationList = A9C1F60C1B1682E200660FBA /* Build configuration list for PBXProject "FestiScouts" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9C1F6081B1682E200660FBA;
+			productRefGroup = A9C1F6121B1682E200660FBA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9C1F6101B1682E200660FBA /* FestiScouts */,
+				A9C1F6221B1682E200660FBA /* FestiScoutsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9C1F60F1B1682E200660FBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9C1F61E1B1682E200660FBA /* LaunchScreen.xib in Resources */,
+				A9C1F61B1B1682E200660FBA /* Images.xcassets in Resources */,
+				A91112371B1CB89C00345192 /* big_noodle_titling.ttf in Resources */,
+				A91112361B1CB89C00345192 /* Bear_and_loupe_regular.otf in Resources */,
+				A91112331B1CB88900345192 /* brooklyncoffee_regular.ttf in Resources */,
+				A92473E71B1FB33400415BE9 /* APIUrls.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9C1F6211B1682E200660FBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5031C11C5B744864BA268C7E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FestiScout/Pods-FestiScout-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9656C1F999696757F046B53C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FestiScout/Pods-FestiScout-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1675AFA54D52D5520175B9F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9C1F60D1B1682E200660FBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96DDA171B19F6DD0077B02F /* BadgeCell.swift in Sources */,
+				A9EE62631B2A2D6500B463B8 /* CameraView.swift in Sources */,
+				A94EB2771B21B77800AECFB2 /* nameView.swift in Sources */,
+				A96DDA1B1B1A590D0077B02F /* mapDrawView.swift in Sources */,
+				A9EE62611B27AB6100B463B8 /* groupCameraView.swift in Sources */,
+				A9A82F1B1B189070002A1896 /* MainViewController.swift in Sources */,
+				A9C1F6191B1682E200660FBA /* FirstLaunchViewController.swift in Sources */,
+				A96DDA191B1A52C50077B02F /* DetailViewController.swift in Sources */,
+				A9C1F6171B1682E200660FBA /* AppDelegate.swift in Sources */,
+				A92473E91B20A6B800415BE9 /* contentData.swift in Sources */,
+				A91112311B1B933100345192 /* CardView.swift in Sources */,
+				A92473ED1B20B0D200415BE9 /* PageView.swift in Sources */,
+				A92473EB1B20AE0300415BE9 /* TutorialView.swift in Sources */,
+				A96DDA151B1918690077B02F /* BadgeData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9C1F61F1B1682E200660FBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9C1F62A1B1682E200660FBA /* FestiScoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9C1F6251B1682E200660FBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9C1F6101B1682E200660FBA /* FestiScouts */;
+			targetProxy = A9C1F6241B1682E200660FBA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9C1F61C1B1682E200660FBA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9C1F61D1B1682E200660FBA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9C1F62B1B1682E200660FBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A9C1F62C1B1682E200660FBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9C1F62E1B1682E200660FBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09444891523DB56C1005767 /* Pods-FestiScout.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FestiScout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = FestiScouts;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A9C1F62F1B1682E200660FBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE1F4C45849F781A54B59794 /* Pods-FestiScout.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FestiScout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = FestiScouts;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A9C1F6311B1682E200660FBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FestiScoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = FestiScoutsTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FestiScouts.app/FestiScouts";
+			};
+			name = Debug;
+		};
+		A9C1F6321B1682E200660FBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FestiScoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = FestiScoutsTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FestiScouts.app/FestiScouts";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9C1F60C1B1682E200660FBA /* Build configuration list for PBXProject "FestiScouts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9C1F62B1B1682E200660FBA /* Debug */,
+				A9C1F62C1B1682E200660FBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9C1F62D1B1682E200660FBA /* Build configuration list for PBXNativeTarget "FestiScouts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9C1F62E1B1682E200660FBA /* Debug */,
+				A9C1F62F1B1682E200660FBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9C1F6301B1682E200660FBA /* Build configuration list for PBXNativeTarget "FestiScoutsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9C1F6311B1682E200660FBA /* Debug */,
+				A9C1F6321B1682E200660FBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9C1F6091B1682E200660FBA /* Project object */;
+}

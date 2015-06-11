@@ -1,0 +1,22 @@
+$line-height-base: 1.5;
+$sans-serif: Helvetica, sans-serif;
+$serif: Georgia, serif;
+
+$color-1: #3a393f; // dark purple
+
+$background: darken($color-1, 5%); // body
+
+$bg-color: #19191D;
+$txt-color1: #b6a269;
+$txt-color2: #C4C4C4;
+
+
+// variables - z-index
+
+$main-zindex: 1;
+$nav-zindex: 3;
+$shadow-zindex: 2;
+
+$menu-items-number: 4;
+
+

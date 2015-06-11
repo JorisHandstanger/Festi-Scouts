@@ -1,0 +1,96 @@
+@import 'base';
+
+*, *:after, *:before {
+
+	@include box-sizing(border-box);
+
+}
+
+html, body {
+
+	height: 100%;
+
+}
+
+body {
+
+	font: {
+
+		family: $primary-font;
+
+	}
+
+	background-color: $background;
+
+}
+
+
+/* --------------------------------
+
+Main
+
+-------------------------------- */
+.container {
+	height: 100%;
+}
+
+.roulette {
+	width: 216px;
+	height: 215px;
+	position: relative;
+
+	left: 50%;
+	margin-left: -108px;
+	top: -53px;
+
+	background-image: url("../assets/roulette1.png");
+	-webkit-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+	a {
+		float: left;
+		display: block;
+		height: 215px;
+		width: 108px;
+	}
+}
+
+.rouletteHover {
+	background-image: url("../assets/roulette2.png") !important;
+}
+
+.rotateClockwise {
+	@include transform(rotate(90deg));
+}
+
+.rotateCounterClockwise {
+	@include transform(rotate(-90deg));
+}
+
+.topBar {
+	margin-bottom: 55px;
+	height: 55px;
+	width: 100%;
+	background-color: black;
+}
+
+.panel {
+	width: 100%;
+	height: 600px;
+	position: fixed;
+	bottom: -545px;
+
+	-webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.opened {
+	bottom: 0;
+}
+
+.hidden {
+	opacity: 0;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
