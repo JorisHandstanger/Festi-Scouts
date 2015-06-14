@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		851F5E08BD7F780B823F9B1C /* Pods_FestiScouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D28360EE4A92852B56D137F /* Pods_FestiScouts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A91112311B1B933100345192 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91112301B1B933100345192 /* CardView.swift */; };
 		A91112331B1CB88900345192 /* brooklyncoffee_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91112321B1CB88900345192 /* brooklyncoffee_regular.ttf */; };
 		A91112361B1CB89C00345192 /* Bear_and_loupe_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A91112341B1CB89C00345192 /* Bear_and_loupe_regular.otf */; };
@@ -18,7 +19,7 @@
 		A94EB2771B21B77800AECFB2 /* nameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EB2761B21B77800AECFB2 /* nameView.swift */; };
 		A96DDA151B1918690077B02F /* BadgeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA141B1918690077B02F /* BadgeData.swift */; };
 		A96DDA171B19F6DD0077B02F /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA161B19F6DD0077B02F /* BadgeCell.swift */; };
-		A96DDA191B1A52C50077B02F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA181B1A52C50077B02F /* DetailViewController.swift */; };
+		A96DDA191B1A52C50077B02F /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA181B1A52C50077B02F /* ChallengeViewController.swift */; };
 		A96DDA1B1B1A590D0077B02F /* mapDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA1A1B1A590D0077B02F /* mapDrawView.swift */; };
 		A9A82F1B1B189070002A1896 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A82F1A1B189070002A1896 /* MainViewController.swift */; };
 		A9C1F6171B1682E200660FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6161B1682E200660FBA /* AppDelegate.swift */; };
@@ -28,7 +29,7 @@
 		A9C1F62A1B1682E200660FBA /* FestiScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6291B1682E200660FBA /* FestiScoutTests.swift */; };
 		A9EE62611B27AB6100B463B8 /* groupCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE62601B27AB6100B463B8 /* groupCameraView.swift */; };
 		A9EE62631B2A2D6500B463B8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE62621B2A2D6500B463B8 /* CameraView.swift */; };
-		C0596854FEC575B8EFE61353 /* Pods_FestiScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97452D1304717B9D12128ECA /* Pods_FestiScout.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A9EF9DF21B2C87CF00B30950 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF9DF11B2C87CF00B30950 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		97452D1304717B9D12128ECA /* Pods_FestiScout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FestiScout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D28360EE4A92852B56D137F /* Pods_FestiScouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FestiScouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91112301B1B933100345192 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A91112321B1CB88900345192 /* brooklyncoffee_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brooklyncoffee_regular.ttf; sourceTree = "<group>"; };
 		A91112341B1CB89C00345192 /* Bear_and_loupe_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bear_and_loupe_regular.otf; sourceTree = "<group>"; };
@@ -54,22 +55,23 @@
 		A94EB2761B21B77800AECFB2 /* nameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nameView.swift; sourceTree = "<group>"; };
 		A96DDA141B1918690077B02F /* BadgeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeData.swift; sourceTree = "<group>"; };
 		A96DDA161B19F6DD0077B02F /* BadgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
-		A96DDA181B1A52C50077B02F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A96DDA181B1A52C50077B02F /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		A96DDA1A1B1A590D0077B02F /* mapDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapDrawView.swift; sourceTree = "<group>"; };
 		A9A82F1A1B189070002A1896 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		A9C1F6111B1682E200660FBA /* FestiScouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestiScouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BDB6B81B2A4C9F003BF59A /* FestiScouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestiScouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BDB6B91B2A4C9F003BF59A /* FestiScoutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FestiScoutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C1F6151B1682E200660FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C1F6161B1682E200660FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9C1F6181B1682E200660FBA /* FirstLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewController.swift; sourceTree = "<group>"; };
 		A9C1F61A1B1682E200660FBA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A9C1F61D1B1682E200660FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A9C1F6231B1682E200660FBA /* FestiScoutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FestiScoutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C1F6281B1682E200660FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C1F6291B1682E200660FBA /* FestiScoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestiScoutTests.swift; sourceTree = "<group>"; };
 		A9EE62601B27AB6100B463B8 /* groupCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupCameraView.swift; sourceTree = "<group>"; };
 		A9EE62621B2A2D6500B463B8 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		BE1F4C45849F781A54B59794 /* Pods-FestiScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FestiScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-FestiScout/Pods-FestiScout.release.xcconfig"; sourceTree = "<group>"; };
-		D09444891523DB56C1005767 /* Pods-FestiScout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FestiScout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FestiScout/Pods-FestiScout.debug.xcconfig"; sourceTree = "<group>"; };
+		A9EF9DF11B2C87CF00B30950 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B5EEB336920424D6D8AA0534 /* Pods-FestiScouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FestiScouts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FestiScouts/Pods-FestiScouts.debug.xcconfig"; sourceTree = "<group>"; };
+		EE560F3F4DF2098B2EC5F976 /* Pods-FestiScouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FestiScouts.release.xcconfig"; path = "Pods/Target Support Files/Pods-FestiScouts/Pods-FestiScouts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0596854FEC575B8EFE61353 /* Pods_FestiScout.framework in Frameworks */,
+				851F5E08BD7F780B823F9B1C /* Pods_FestiScouts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,10 +93,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21D99BF0CF85CDA00AF16ACB /* Frameworks */ = {
+		96EFCFF2D7E44A46C23FC538 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				97452D1304717B9D12128ECA /* Pods_FestiScout.framework */,
+				8D28360EE4A92852B56D137F /* Pods_FestiScouts.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,19 +138,11 @@
 			children = (
 				A9C1F6131B1682E200660FBA /* FestiScouts */,
 				A9C1F6261B1682E200660FBA /* FestiScoutsTests */,
-				A9C1F6121B1682E200660FBA /* Products */,
-				AFB3868D9066750A7C358C62 /* Pods */,
-				21D99BF0CF85CDA00AF16ACB /* Frameworks */,
+				DA7760F014FA859685D542F9 /* Pods */,
+				96EFCFF2D7E44A46C23FC538 /* Frameworks */,
+				A9BDB6B81B2A4C9F003BF59A /* FestiScouts.app */,
+				A9BDB6B91B2A4C9F003BF59A /* FestiScoutsTests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		A9C1F6121B1682E200660FBA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A9C1F6111B1682E200660FBA /* FestiScouts.app */,
-				A9C1F6231B1682E200660FBA /* FestiScoutsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A9C1F6131B1682E200660FBA /* FestiScouts */ = {
@@ -164,9 +158,10 @@
 				A9A82F1A1B189070002A1896 /* MainViewController.swift */,
 				A96DDA141B1918690077B02F /* BadgeData.swift */,
 				A96DDA161B19F6DD0077B02F /* BadgeCell.swift */,
-				A96DDA181B1A52C50077B02F /* DetailViewController.swift */,
+				A96DDA181B1A52C50077B02F /* ChallengeViewController.swift */,
 				A94EB2741B21944400AECFB2 /* Challenges */,
 				A91112301B1B933100345192 /* CardView.swift */,
+				A9EF9DF11B2C87CF00B30950 /* DetailViewController.swift */,
 			);
 			name = FestiScouts;
 			path = FestiScout;
@@ -198,11 +193,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AFB3868D9066750A7C358C62 /* Pods */ = {
+		DA7760F014FA859685D542F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D09444891523DB56C1005767 /* Pods-FestiScout.debug.xcconfig */,
-				BE1F4C45849F781A54B59794 /* Pods-FestiScout.release.xcconfig */,
+				B5EEB336920424D6D8AA0534 /* Pods-FestiScouts.debug.xcconfig */,
+				EE560F3F4DF2098B2EC5F976 /* Pods-FestiScouts.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -227,7 +222,7 @@
 			);
 			name = FestiScouts;
 			productName = FestiScout;
-			productReference = A9C1F6111B1682E200660FBA /* FestiScouts.app */;
+			productReference = A9BDB6B81B2A4C9F003BF59A /* FestiScouts.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A9C1F6221B1682E200660FBA /* FestiScoutsTests */ = {
@@ -245,7 +240,7 @@
 			);
 			name = FestiScoutsTests;
 			productName = FestiScoutTests;
-			productReference = A9C1F6231B1682E200660FBA /* FestiScoutsTests.xctest */;
+			productReference = A9BDB6B91B2A4C9F003BF59A /* FestiScoutsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -275,7 +270,7 @@
 				Base,
 			);
 			mainGroup = A9C1F6081B1682E200660FBA;
-			productRefGroup = A9C1F6121B1682E200660FBA /* Products */;
+			productRefGroup = A9C1F6081B1682E200660FBA;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -321,7 +316,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FestiScout/Pods-FestiScout-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FestiScouts/Pods-FestiScouts-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9656C1F999696757F046B53C /* Embed Pods Frameworks */ = {
@@ -336,7 +331,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FestiScout/Pods-FestiScout-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FestiScouts/Pods-FestiScouts-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F1675AFA54D52D5520175B9F /* Check Pods Manifest.lock */ = {
@@ -368,11 +363,12 @@
 				A9EE62611B27AB6100B463B8 /* groupCameraView.swift in Sources */,
 				A9A82F1B1B189070002A1896 /* MainViewController.swift in Sources */,
 				A9C1F6191B1682E200660FBA /* FirstLaunchViewController.swift in Sources */,
-				A96DDA191B1A52C50077B02F /* DetailViewController.swift in Sources */,
+				A96DDA191B1A52C50077B02F /* ChallengeViewController.swift in Sources */,
 				A9C1F6171B1682E200660FBA /* AppDelegate.swift in Sources */,
 				A92473E91B20A6B800415BE9 /* contentData.swift in Sources */,
 				A91112311B1B933100345192 /* CardView.swift in Sources */,
 				A92473ED1B20B0D200415BE9 /* PageView.swift in Sources */,
+				A9EF9DF21B2C87CF00B30950 /* DetailViewController.swift in Sources */,
 				A92473EB1B20AE0300415BE9 /* TutorialView.swift in Sources */,
 				A96DDA151B1918690077B02F /* BadgeData.swift in Sources */,
 			);
@@ -491,7 +487,7 @@
 		};
 		A9C1F62E1B1682E200660FBA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D09444891523DB56C1005767 /* Pods-FestiScout.debug.xcconfig */;
+			baseConfigurationReference = B5EEB336920424D6D8AA0534 /* Pods-FestiScouts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FestiScout/Info.plist;
@@ -503,7 +499,7 @@
 		};
 		A9C1F62F1B1682E200660FBA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE1F4C45849F781A54B59794 /* Pods-FestiScout.release.xcconfig */;
+			baseConfigurationReference = EE560F3F4DF2098B2EC5F976 /* Pods-FestiScouts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FestiScout/Info.plist;

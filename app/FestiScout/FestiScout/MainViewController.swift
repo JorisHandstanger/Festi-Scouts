@@ -15,9 +15,13 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 	var lidKaart: CardView?
 	var collectionView: UICollectionView?
 	var BadgesArray = Array<BadgeData>()
+	var CompletedBadgesArray = Array<BadgeData>()
+	var APIUrls : NSDictionary = NSDictionary()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		loadPlist()
 		
 		self.navigationController?.navigationBarHidden = false
 		
@@ -42,17 +46,30 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 			self.navigationController!.pushViewController(FirstLaunchMainViewController(), animated:false)
 		}
 		
-		self.loadBadges()
+		// Array maken met de completed badges, daarna alle badges inladen
+		let completedBadgesRequest = Alamofire.request(.GET, (self.APIUrls["badges"]! as! String) + String(NSUserDefaults.standardUserDefaults().integerForKey("userId")))
+		completedBadgesRequest.responseJSON{(_, _, data, _) in
+			var json = JSON(data!)
+			self.CompletedBadgesArray = self.createFromJSONData(json, checkBadge: false)
+			self.loadBadges()
+		}
+		
+		
     }
+	
+	func loadPlist(){
+		var plistPath = NSBundle.mainBundle().URLForResource("APIUrls", withExtension: "plist")
+		self.APIUrls = NSDictionary(contentsOfURL: plistPath!) as! Dictionary<String, String>
+		println(self.APIUrls["users"]!)
+	}
 	
 	func loadBadges(){
 		// Badges inladen
-		
-		let badgesRequest = Alamofire.request(.GET, "http://192.168.1.147/FestiScouts/api/badges")
+		let badgesRequest = Alamofire.request(.GET, self.APIUrls["badges"]! as! String)
 		badgesRequest.responseJSON{(_, _, data, _) in
 			
 			var json = JSON(data!)
-			self.BadgesArray = self.createFromJSONData(json)
+			self.BadgesArray = self.createFromJSONData(json, checkBadge: true)
 			
 			// Maak collectionView
 			
@@ -106,8 +123,14 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! BadgeCell
 		
 		let badgeData = self.BadgesArray[indexPath.row]
+		if(!badgeData.done){
+			cell.imageView.image = UIImage(named: badgeData.image)
+			cell.imageView.alpha = 0.5
+		}else{
+			cell.imageView.image = UIImage(named: badgeData.image)
+			cell.imageView.alpha = 1
+		}
 		
-		cell.imageView.image = UIImage(named: badgeData.image)
 		cell.textLabel.text = badgeData.name
 		
 		return cell
@@ -126,7 +149,7 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 		self.navigationController?.pushViewController(detailVC, animated: true)
 	}
 	
-	func createFromJSONData(json:JSON)	-> Array<BadgeData>{
+	func createFromJSONData(json:JSON, checkBadge:Bool)	-> Array<BadgeData>{
 		var theArray = Array<BadgeData>()
 		
 		// Array maken uit JSON data
@@ -137,7 +160,15 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 			let desc = subJson["badgeDesc"]
 			let interactable = subJson["interactive"]
 			let image = subJson["image"]
-			let done = false
+			var done = false
+			
+			if(checkBadge) {
+				let results = CompletedBadgesArray.filter { $0.id == subJson["id"].intValue }
+				if(results.isEmpty == false){
+					done = true
+				}
+			}
+			
 			let view = subJson["view"]
 			
 			let badgeData = BadgeData(id: id.intValue, name: name.stringValue, desc: desc.stringValue, interactable: interactable.boolValue, done: done, image: image.stringValue, view: view.stringValue)

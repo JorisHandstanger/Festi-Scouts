@@ -53,18 +53,16 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 		self.takePhotoButton.addTarget(self, action: "takePicture:", forControlEvents: .TouchUpInside)
 		self.addSubview(self.takePhotoButton)
 		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "startCapture", name: "startCapture", object: nil)
-		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "stopCapture", name: "stopCapture", object: nil)
-		
+		self.startCapture()
 	}
 	
 	func takePicture(sender: UIButton!) {
 		if(!self.photoLocked){
 			println("take picture")
-			if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
+			videoDataOutput.connectionWithMediaType(AVMediaTypeVideo).enabled = false
+			if let videoConnection = self.stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
 				videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
-				stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
+				self.stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
 					if (sampleBuffer != nil) {
 						var imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
 						var dataProvider = CGDataProviderCreateWithCFData(imageData)
@@ -75,13 +73,14 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 					}
 				})
 			}
+			videoDataOutput.connectionWithMediaType(AVMediaTypeVideo).enabled = true
 			
 		}
 	}
 	
 	func startCapture() {
 		setupAVCapture()
-		square = UIImage(named: "placeHolder")
+		square = UIImage(named: "facedetect")
 		
 		faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh, CIDetectorTracking: true])
 		
@@ -143,19 +142,22 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 			session.addInput(deviceInput)
 		}
 		
-		stillImageOutput = AVCaptureStillImageOutput()
+		// Foto output
 		
-		// Make a video data output
+		stillImageOutput = AVCaptureStillImageOutput()
+		stillImageOutput!.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+		
+		// Video output
 		videoDataOutput = AVCaptureVideoDataOutput()
 		
-		// we want BGRA, both CoreGraphics and OpenGL work well with 'BGRA'
 		videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCMPixelFormat_32BGRA as NSNumber]
 		videoDataOutput.alwaysDiscardsLateVideoFrames = true
 		
 		videoDataOutputQueue = dispatch_queue_create("VideoDataOutputQueue", DISPATCH_QUEUE_SERIAL)
 		videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
 		
-		if session.canAddOutput(videoDataOutput) {
+		if session.canAddOutput(videoDataOutput) && session.canAddOutput(stillImageOutput){
+			session.addOutput(stillImageOutput)
 			session.addOutput(videoDataOutput)
 		}
 		videoDataOutput.connectionWithMediaType(AVMediaTypeVideo).enabled = false

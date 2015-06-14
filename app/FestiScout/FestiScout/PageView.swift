@@ -29,7 +29,6 @@ class PageView: UIView {
 		self.navC = navigationController
 		super.init(frame: frame)
 		
-		self.loadImage("ipadplaceholder")
 		self.backgroundColor = UIColor.whiteColor()
 		
 		self.createTitle()

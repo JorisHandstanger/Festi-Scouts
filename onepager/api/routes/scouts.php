@@ -34,7 +34,7 @@ $app->get('/users/:totem/?', function($totem) use ($UserDAO){
     exit();
 });
 
-$app->get('/getTotem/?', function() use ($UserDAO){
+$app->get('/totem/get/?', function() use ($UserDAO){
     header("Content-Type: application/json");
     echo json_encode($UserDAO->getTotem(), JSON_NUMERIC_CHECK);
     exit();

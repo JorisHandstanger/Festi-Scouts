@@ -65,7 +65,7 @@ class CardView: UIView {
 		lblDeNaam.font = UIFont(name: "Bearandloupe", size: 21)
 		self.addSubview(lblDeNaam)
 		
-		self.enumerateFonts()
+		//self.enumerateFonts()
 		
 		// Open en sluit
 		self.transform = CGAffineTransformIdentity;
@@ -73,7 +73,7 @@ class CardView: UIView {
 		cardHeader.addGestureRecognizer(tap)
 	}
 	
-	func enumerateFonts(){
+	/*func enumerateFonts(){
 		for fontFamily in UIFont.familyNames() {
 			println("Font family name = \(fontFamily as! String)");
 			
@@ -83,7 +83,7 @@ class CardView: UIView {
 			
 			println("\n")
 		}
-	}
+	}*/
 	
 	func touched(sender:UITapGestureRecognizer) {
 		if(!self.opened){

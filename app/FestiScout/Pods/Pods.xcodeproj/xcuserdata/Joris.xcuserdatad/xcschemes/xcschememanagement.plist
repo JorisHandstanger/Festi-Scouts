@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-FestiScout-Alamofire.xcscheme</key>
+		<key>Pods-FestiScouts-Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-FestiScout-SwiftyJSON.xcscheme</key>
+		<key>Pods-FestiScouts-SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-FestiScout.xcscheme</key>
+		<key>Pods-FestiScouts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>07FB99D4521ABD38A58E8834</key>
+		<key>1D6A9EB4FE4A0A6E038F89C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>30AEFC4C98BEE2D60AC21538</key>
+		<key>A659B7B532D0A7A952712DE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80293C08BEB6DAB7DA349BD7</key>
+		<key>FCC4B90DE844F05DCE767256</key>
 		<dict>
 			<key>primary</key>
 			<true/>

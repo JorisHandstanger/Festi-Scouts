@@ -12,12 +12,20 @@ import SwiftyJSON
 
 class FirstLaunchMainViewController: UIViewController {
 
+	var APIUrls : NSDictionary = NSDictionary()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.getTotem();
+		self.loadPlist()
+		self.getTotem()
 		self.navigationController?.navigationBarHidden = true
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "popController", name: "tutorialComplete", object: nil)
 		
+	}
+	
+	func loadPlist(){
+		var plistPath = NSBundle.mainBundle().URLForResource("APIUrls", withExtension: "plist")
+		self.APIUrls = NSDictionary(contentsOfURL: plistPath!) as! Dictionary<String, String>
 	}
 	
 	func popController(){
@@ -32,7 +40,7 @@ class FirstLaunchMainViewController: UIViewController {
 	}
 	
 	func getTotem(){
-		let totemRequest = Alamofire.request(.GET, "http://192.168.1.147/FestiScouts/api/getTotem")
+		let totemRequest = Alamofire.request(.GET, self.APIUrls["getTotem"]! as! String)
 		totemRequest.responseJSON{(_, _, data, _) in
 			
 			// Via de api een willekeurige naam krijgen en checken of deze al in gebruik is
@@ -43,7 +51,7 @@ class FirstLaunchMainViewController: UIViewController {
 			var totem:String = karakter + " " + dier
 			var totemQuery:String = totem.stringByReplacingOccurrencesOfString(" ", withString: "%20")
 			
-			let totemCheckRequest = Alamofire.request(.GET, "http://192.168.1.147/FestiScouts/api/users/" + totemQuery)
+			let totemCheckRequest = Alamofire.request(.GET, self.APIUrls["users"]! as! String + totemQuery)
 			totemCheckRequest.responseJSON{(_, _, data, _) in
 				if((data) != nil){
 					if(data! === true){
@@ -67,7 +75,7 @@ class FirstLaunchMainViewController: UIViewController {
 			"backImage": karakterImage
 		]
 		
-		Alamofire.request(.POST, "http://192.168.1.147/FestiScouts/api/users/", parameters: data).responseJSON{(_, _, data, _) in
+		Alamofire.request(.POST, self.APIUrls["users"]! as! String, parameters: data).responseJSON{(_, _, data, _) in
 			
 			// Return data van insert opslaan als userdefaults
 			
