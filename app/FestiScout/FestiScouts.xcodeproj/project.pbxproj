@@ -22,14 +22,17 @@
 		A96DDA191B1A52C50077B02F /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA181B1A52C50077B02F /* ChallengeViewController.swift */; };
 		A96DDA1B1B1A590D0077B02F /* mapDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96DDA1A1B1A590D0077B02F /* mapDrawView.swift */; };
 		A9A82F1B1B189070002A1896 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A82F1A1B189070002A1896 /* MainViewController.swift */; };
+		A9B260A01B2E5B2300C95EBF /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2609F1B2E5B2300C95EBF /* PinData.swift */; };
+		A9B260A21B2F2A3400C95EBF /* SRWebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B260A11B2F2A3400C95EBF /* SRWebClient.swift */; };
 		A9C1F6171B1682E200660FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6161B1682E200660FBA /* AppDelegate.swift */; };
 		A9C1F6191B1682E200660FBA /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6181B1682E200660FBA /* FirstLaunchViewController.swift */; };
 		A9C1F61B1B1682E200660FBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F61A1B1682E200660FBA /* Images.xcassets */; };
 		A9C1F61E1B1682E200660FBA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F61C1B1682E200660FBA /* LaunchScreen.xib */; };
 		A9C1F62A1B1682E200660FBA /* FestiScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6291B1682E200660FBA /* FestiScoutTests.swift */; };
 		A9EE62611B27AB6100B463B8 /* groupCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE62601B27AB6100B463B8 /* groupCameraView.swift */; };
-		A9EE62631B2A2D6500B463B8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE62621B2A2D6500B463B8 /* CameraView.swift */; };
 		A9EF9DF21B2C87CF00B30950 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF9DF11B2C87CF00B30950 /* DetailViewController.swift */; };
+		A9EF9DF41B2D83DF00B30950 /* MAXWELL-BOLD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9EF9DF31B2D83DF00B30950 /* MAXWELL-BOLD.ttf */; };
+		A9EF9DF61B2D847900B30950 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9EF9DF51B2D847900B30950 /* Bariol_Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,8 @@
 		A96DDA181B1A52C50077B02F /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		A96DDA1A1B1A590D0077B02F /* mapDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapDrawView.swift; sourceTree = "<group>"; };
 		A9A82F1A1B189070002A1896 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A9B2609F1B2E5B2300C95EBF /* PinData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
+		A9B260A11B2F2A3400C95EBF /* SRWebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRWebClient.swift; sourceTree = "<group>"; };
 		A9BDB6B81B2A4C9F003BF59A /* FestiScouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestiScouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BDB6B91B2A4C9F003BF59A /* FestiScoutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FestiScoutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C1F6151B1682E200660FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,8 +73,9 @@
 		A9C1F6281B1682E200660FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C1F6291B1682E200660FBA /* FestiScoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestiScoutTests.swift; sourceTree = "<group>"; };
 		A9EE62601B27AB6100B463B8 /* groupCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupCameraView.swift; sourceTree = "<group>"; };
-		A9EE62621B2A2D6500B463B8 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		A9EF9DF11B2C87CF00B30950 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A9EF9DF31B2D83DF00B30950 /* MAXWELL-BOLD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MAXWELL-BOLD.ttf"; sourceTree = "<group>"; };
+		A9EF9DF51B2D847900B30950 /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
 		B5EEB336920424D6D8AA0534 /* Pods-FestiScouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FestiScouts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FestiScouts/Pods-FestiScouts.debug.xcconfig"; sourceTree = "<group>"; };
 		EE560F3F4DF2098B2EC5F976 /* Pods-FestiScouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FestiScouts.release.xcconfig"; path = "Pods/Target Support Files/Pods-FestiScouts/Pods-FestiScouts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +124,7 @@
 			children = (
 				A96DDA1A1B1A590D0077B02F /* mapDrawView.swift */,
 				A9EE62601B27AB6100B463B8 /* groupCameraView.swift */,
-				A9EE62621B2A2D6500B463B8 /* CameraView.swift */,
+				A9B2609F1B2E5B2300C95EBF /* PinData.swift */,
 			);
 			name = Challenges;
 			sourceTree = "<group>";
@@ -126,6 +132,8 @@
 		A94EB2751B21945A00AECFB2 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				A9EF9DF51B2D847900B30950 /* Bariol_Regular.otf */,
+				A9EF9DF31B2D83DF00B30950 /* MAXWELL-BOLD.ttf */,
 				A91112341B1CB89C00345192 /* Bear_and_loupe_regular.otf */,
 				A91112351B1CB89C00345192 /* big_noodle_titling.ttf */,
 				A91112321B1CB88900345192 /* brooklyncoffee_regular.ttf */,
@@ -148,6 +156,7 @@
 		A9C1F6131B1682E200660FBA /* FestiScouts */ = {
 			isa = PBXGroup;
 			children = (
+				A9B260A11B2F2A3400C95EBF /* SRWebClient.swift */,
 				A92473E61B1FB33400415BE9 /* APIUrls.plist */,
 				A9C1F6161B1682E200660FBA /* AppDelegate.swift */,
 				A94EB2731B21941700AECFB2 /* First Lauch */,
@@ -288,8 +297,10 @@
 				A9C1F61E1B1682E200660FBA /* LaunchScreen.xib in Resources */,
 				A9C1F61B1B1682E200660FBA /* Images.xcassets in Resources */,
 				A91112371B1CB89C00345192 /* big_noodle_titling.ttf in Resources */,
+				A9EF9DF61B2D847900B30950 /* Bariol_Regular.otf in Resources */,
 				A91112361B1CB89C00345192 /* Bear_and_loupe_regular.otf in Resources */,
 				A91112331B1CB88900345192 /* brooklyncoffee_regular.ttf in Resources */,
+				A9EF9DF41B2D83DF00B30950 /* MAXWELL-BOLD.ttf in Resources */,
 				A92473E71B1FB33400415BE9 /* APIUrls.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +368,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A96DDA171B19F6DD0077B02F /* BadgeCell.swift in Sources */,
-				A9EE62631B2A2D6500B463B8 /* CameraView.swift in Sources */,
 				A94EB2771B21B77800AECFB2 /* nameView.swift in Sources */,
 				A96DDA1B1B1A590D0077B02F /* mapDrawView.swift in Sources */,
 				A9EE62611B27AB6100B463B8 /* groupCameraView.swift in Sources */,
@@ -365,11 +375,13 @@
 				A9C1F6191B1682E200660FBA /* FirstLaunchViewController.swift in Sources */,
 				A96DDA191B1A52C50077B02F /* ChallengeViewController.swift in Sources */,
 				A9C1F6171B1682E200660FBA /* AppDelegate.swift in Sources */,
+				A9B260A01B2E5B2300C95EBF /* PinData.swift in Sources */,
 				A92473E91B20A6B800415BE9 /* contentData.swift in Sources */,
 				A91112311B1B933100345192 /* CardView.swift in Sources */,
 				A92473ED1B20B0D200415BE9 /* PageView.swift in Sources */,
 				A9EF9DF21B2C87CF00B30950 /* DetailViewController.swift in Sources */,
 				A92473EB1B20AE0300415BE9 /* TutorialView.swift in Sources */,
+				A9B260A21B2F2A3400C95EBF /* SRWebClient.swift in Sources */,
 				A96DDA151B1918690077B02F /* BadgeData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

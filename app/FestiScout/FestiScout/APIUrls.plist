@@ -2,12 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>completed</key>
+	<string>http://192.168.1.125/Festi-Scouts/onepager/api/badges/completed/</string>
+	<key>upload</key>
+	<string>http://192.168.1.125/Festi-Scouts/onepager/upload.php</string>
 	<key>getTotem</key>
-	<string>http://192.168.0.248/Festi-Scouts/onepager/api/totem/get/</string>
+	<string>http://192.168.1.125/Festi-Scouts/onepager/api/totem/get/</string>
 	<key>users</key>
-	<string>http://192.168.0.248/Festi-Scouts/onepager/api/users/</string>
+	<string>http://192.168.1.125/Festi-Scouts/onepager/api/users/</string>
 	<key>badges</key>
-	<string>http://192.168.0.248/Festi-Scouts/onepager/api/badges/</string>
+	<string>http://192.168.1.125/Festi-Scouts/onepager/api/badges/</string>
 	<key>XInitializerItem</key>
 	<string>DoNotEverChangeMe</string>
 </dict>

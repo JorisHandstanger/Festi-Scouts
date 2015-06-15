@@ -28,6 +28,8 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Bariol_Regular.otf</string>
+		<string>MAXWELL-BOLD.ttf</string>
 		<string>brooklyncoffee_regular.ttf</string>
 		<string>big_noodle_titling.ttf</string>
 		<string>Bear_and_loupe_regular.otf</string>

@@ -65,8 +65,6 @@ class CardView: UIView {
 		lblDeNaam.font = UIFont(name: "Bearandloupe", size: 21)
 		self.addSubview(lblDeNaam)
 		
-		//self.enumerateFonts()
-		
 		// Open en sluit
 		self.transform = CGAffineTransformIdentity;
 		let tap = UITapGestureRecognizer(target: self, action: "touched:")

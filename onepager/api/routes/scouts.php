@@ -24,6 +24,17 @@ $app->get('/badges/:id/?',function($id) use ($BadgesDAO){
   exit();
 });
 
+$app->post('/badges/completed/?', function() use ($app, $BadgesDAO){
+
+		header('Content-Type: application/json');
+		$post = $app->request->post();
+    if(empty($post)){
+        $post = (array) json_decode($app->request()->getBody());
+    }
+    echo json_encode($BadgesDAO->insertCompleted($post), JSON_NUMERIC_CHECK);
+    exit();
+});
+
 $app->get('/users/:totem/?', function($totem) use ($UserDAO){
     header("Content-Type: application/json");
     if($UserDAO->selectByTotem($totem)){

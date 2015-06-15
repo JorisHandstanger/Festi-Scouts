@@ -16,8 +16,11 @@ class BadgeData: NSObject {
 	var done:Bool
 	var image:String
 	var view:String
+	var tijd:Int
+	var plezier:Int
+	var peerPlezier:Int
 	
-	init( id:Int, name:String, desc:String, interactable:Bool, done:Bool, image:String, view:String ) {
+	init( id:Int, name:String, desc:String, interactable:Bool, done:Bool, image:String, view:String, tijd:Int, plezier:Int, peerPlezier:Int ) {
 		
 		self.id = id
 		self.name = name
@@ -26,6 +29,9 @@ class BadgeData: NSObject {
 		self.done = done
 		self.image = image
 		self.view = view
+		self.tijd = tijd
+		self.plezier = plezier
+		self.peerPlezier = peerPlezier
 		super.init()
 		
 	}

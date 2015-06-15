@@ -14,42 +14,48 @@ class TutorialView: UIView, UIScrollViewDelegate {
 	
 	var tutorialContent:Array<contentData>! = Array<contentData>()
 	var previousPage = 0;
-	let square1 = UIView(frame: CGRectMake(30, 500, 20, 20))
-	let square2 = UIView(frame: CGRectMake(55, 500, 20, 20))
-	let square3 = UIView(frame: CGRectMake(80, 500, 20, 20))
-	let square4 = UIView(frame: CGRectMake(105, 500, 20, 20))
+	
+	var circles: [UIImageView] = []
 	
 	init(frame: CGRect, navigationController:UINavigationController) {
 		
-		let p1 = contentData(titel: "Welkom kadet", picture: "placeHolder", info: "lorem ipsum")
-		let p2 = contentData(titel: "Badges", picture: "placeHolder", info: "lorem ipsum")
-		let p3 = contentData(titel: "Word leiding", picture: "placeHolder", info: "lorem ipsum")
+		let p1 = contentData(picture: "tutWelkom", info: "lorem ipsum")
+		let p2 = contentData(picture: "tutBadges", info: "lorem ipsum")
+		let p3 = contentData(picture: "rangen",
+			info: "zoals iedere goede dictatuur zijn er rangen. Je begint als groentje maar na 5 badges ben je al volwaardig lid. Het doel is natuurlijk om leiding te worden en dit kan je pas worden na 15 badges verzameld te hebben. ")
+		let p4 = contentData(picture: "leidingWorden", info: "lorem ipsum")
 		
-		self.tutorialContent = [p1, p2, p3]
+		self.tutorialContent = [p1, p2, p3, p4]
 		
 		self.scrollView = UIScrollView(frame: frame)
 		super.init(frame: frame)
 		
 		self.scrollView.delegate = self
 		
+		self.backgroundColor = UIColor.whiteColor()
 		
-		self.backgroundColor = UIColor.redColor()
+		let bgImageView = UIImageView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height))
+		let bgImage = UIImage(named: "background2")
+		bgImageView.image = bgImage
+		self.addSubview(bgImageView)
 		
-		let backColor = UIColor(red: 18/255, green: 23/255, blue: 38/255, alpha: 1)
-		self.scrollView.backgroundColor = backColor
+		self.scrollView.backgroundColor = UIColor.clearColor()
 		self.addSubview(self.scrollView)
 		
 		createContentViews(navigationController)
 		
-		self.square1.backgroundColor = UIColor.redColor()
-		self.square2.backgroundColor = UIColor.blueColor()
-		self.square3.backgroundColor = UIColor.blueColor()
-		self.square4.backgroundColor = UIColor.blueColor()
-		
-		self.addSubview(self.square1)
-		self.addSubview(self.square2)
-		self.addSubview(self.square3)
-		self.addSubview(self.square4)
+		for i in 0 ... 4 {
+			let circleView = UIImageView(frame: CGRectMake(CGFloat(90 + (28 * i)), 500, 23, 24))
+			circleView.image = UIImage(named: "circle")
+			circleView.image = circleView.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+			if i == 0 {
+				circleView.tintColor = UIColor(red: 69/255, green: 78/255, blue: 48/255, alpha: 1.0)
+			}else{
+				circleView.tintColor = UIColor(red: 149/255, green: 141/255, blue: 57/255, alpha: 1.0)
+			}
+			circles.append(circleView)
+			self.addSubview(circleView)
+		}
 		
 	}
 
@@ -57,26 +63,15 @@ class TutorialView: UIView, UIScrollViewDelegate {
 		
 		let pageWidth = scrollView.frame.size.width;
 		let fractionalPage = scrollView.contentOffset.x / pageWidth;
-		let page = Int(ceil(fractionalPage));
+		let page = Int(floor(fractionalPage));
 		if (self.previousPage != page) {
 			
-			self.square1.backgroundColor = UIColor.blueColor()
-			self.square2.backgroundColor = UIColor.blueColor()
-			self.square3.backgroundColor = UIColor.blueColor()
-			self.square4.backgroundColor = UIColor.blueColor()
-			
-			switch page {
-			case 0:
-				self.square1.backgroundColor = UIColor.redColor()
-			case 1:
-				self.square2.backgroundColor = UIColor.redColor()
-			case 2:
-				self.square3.backgroundColor = UIColor.redColor()
-			case 3:
-				self.square4.backgroundColor = UIColor.redColor()
-			default:
-				self.square1.backgroundColor = UIColor.blueColor()
+			for i in 0 ... 4 {
+				circles[i].tintColor = UIColor(red: 149/255, green: 141/255, blue: 57/255, alpha: 1.0)
 			}
+			
+			circles[page].tintColor = UIColor(red: 69/255, green: 78/255, blue: 48/255, alpha: 1.0)
+			
 			self.previousPage = page;
 		}
 	}
@@ -109,8 +104,8 @@ class TutorialView: UIView, UIScrollViewDelegate {
 	func nameCompleted() {
 		NSNotificationCenter.defaultCenter().postNotificationName("tutorialComplete", object: self)
 		
-		// Notification uitsturen om de data te herladen op de badges pagina
-		NSNotificationCenter.defaultCenter().postNotificationName("UserSet", object: self)
+		// Notification uitsturen om de data te herladen op de home pagina
+		NSNotificationCenter.defaultCenter().postNotificationName("reload", object: self)
 	}
 	
 	func buttonTouched() {

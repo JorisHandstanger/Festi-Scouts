@@ -17,6 +17,7 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 	var BadgesArray = Array<BadgeData>()
 	var CompletedBadgesArray = Array<BadgeData>()
 	var APIUrls : NSDictionary = NSDictionary()
+	let badgeCountView = UIView(frame: CGRectMake(0, 0, 49, 44))
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 		
 		self.navigationController?.navigationBarHidden = false
 		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadData", name: "UserSet", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadData", name: "reload", object: nil)
 		
 		self.automaticallyAdjustsScrollViewInsets = true
 		
@@ -40,6 +41,8 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 		
 		self.navigationItem.titleView = logoView
 		
+		self.navigationController?.navigationBar.addSubview(self.badgeCountView)
+		
 		// Checken of er een users in de userDefaults zit, indien niet -> nieuwe user
 		
 		if(!NSUserDefaults.standardUserDefaults().boolForKey("userSaved")){
@@ -51,16 +54,34 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 		completedBadgesRequest.responseJSON{(_, _, data, _) in
 			var json = JSON(data!)
 			self.CompletedBadgesArray = self.createFromJSONData(json, checkBadge: false)
+			
+			// Badge count
+			let badgeCountImageView = UIImageView(frame: CGRectMake(0, 0, 48, 44))
+			badgeCountImageView.image = UIImage(named: "badgesCount")
+			badgeCountImageView.alpha = 1
+			self.badgeCountView.addSubview(badgeCountImageView)
+			
+			let lblCount = UILabel(frame: CGRectMake(0, 4, 45, 23))
+			lblCount.text = String(self.CompletedBadgesArray.count)
+			lblCount.textColor = UIColor.whiteColor()
+			lblCount.font = UIFont(name: "BigNoodleTitling", size: 23)
+			lblCount.textAlignment =  NSTextAlignment.Center
+			self.badgeCountView.addSubview(lblCount)
+			
 			self.loadBadges()
 		}
-		
 		
     }
 	
 	func loadPlist(){
 		var plistPath = NSBundle.mainBundle().URLForResource("APIUrls", withExtension: "plist")
 		self.APIUrls = NSDictionary(contentsOfURL: plistPath!) as! Dictionary<String, String>
-		println(self.APIUrls["users"]!)
+	}
+
+	override func viewDidAppear(animated: Bool) {
+		UIView.animateWithDuration(0.1, animations: {
+			self.badgeCountView.alpha = 1
+		})
 	}
 	
 	func loadBadges(){
@@ -115,7 +136,6 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 	func reloadData(){
 		println("reload")
 		self.viewDidLoad()
-		self.lidKaart?.lblTotem.text = NSUserDefaults.standardUserDefaults().stringForKey("userTotem")
 	}
  
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -170,8 +190,11 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 			}
 			
 			let view = subJson["view"]
+			let tijd = subJson["tijdNodig"]
+			let plezier = subJson["plezier"]
+			let peerPlezier = subJson["peerPlezier"]
 			
-			let badgeData = BadgeData(id: id.intValue, name: name.stringValue, desc: desc.stringValue, interactable: interactable.boolValue, done: done, image: image.stringValue, view: view.stringValue)
+			let badgeData = BadgeData(id: id.intValue, name: name.stringValue, desc: desc.stringValue, interactable: interactable.boolValue, done: done, image: image.stringValue, view: view.stringValue, tijd: tijd.intValue, plezier: plezier.intValue, peerPlezier: peerPlezier.intValue)
 			theArray.append(badgeData)
 		}
 		

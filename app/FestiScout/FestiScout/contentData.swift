@@ -10,13 +10,11 @@ import UIKit
 
 class contentData: NSObject {
 	
-	var titel:String
 	var picture:String
 	var info:String
 	
-	init( titel:String, picture:String, info:String) {
+	init( picture:String, info:String) {
 		
-		self.titel = titel
 		self.picture = picture
 		self.info = info
 		super.init()

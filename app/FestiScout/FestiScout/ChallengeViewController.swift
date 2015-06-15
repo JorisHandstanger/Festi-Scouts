@@ -25,8 +25,6 @@ class ChallengeViewController: UIViewController {
 			self.view = mapDrawView(frame: UIScreen.mainScreen().bounds)
 			case "groupCameraView":
 			self.view = groupCameraView(frame: UIScreen.mainScreen().bounds)
-			case "cameraView":
-			self.view = CameraView(frame: UIScreen.mainScreen().bounds)
 			default:
 			self.view = nil
 		}

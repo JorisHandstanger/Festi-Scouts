@@ -25,10 +25,28 @@ class nameView: UIView {
 		self.navC = navigationController
 		super.init(frame: frame)
 		
-		self.loadImage("ipadplaceholder")
-		self.backgroundColor = UIColor.whiteColor()
+		self.backgroundColor = UIColor.clearColor()
 		
-		self.createTitle()
+		let imageView = UIImageView(image: UIImage(named: "tutbg"))
+		imageView.frame = CGRectMake(16, 47, 283, 474)
+		imageView.contentMode = UIViewContentMode.ScaleAspectFit
+		self.addSubview(imageView)
+		
+		let image = UIImage(named: "tutTotem")
+		let imageView2 = UIImageView(image: image)
+		imageView2.frame = CGRectMake(35, 70, image!.size.width, image!.size.height)
+		imageView2.contentMode = UIViewContentMode.ScaleAspectFit
+		self.addSubview(imageView2)
+		
+		let desclbl = UITextView(frame: CGRectMake(50, 200, UIScreen.mainScreen().bounds.width - 100, 400))
+		desclbl.text = "welkom " + NSUserDefaults.standardUserDefaults().stringForKey("userTotem")! + " bij de festiscouts. We hebben voor jou " + NSUserDefaults.standardUserDefaults().stringForKey("userTotem")! + " gekozen omdat... Ik denk dat het vrij duidelijk is eigelijk."
+		desclbl.editable = false
+		desclbl.textColor = UIColor(red: 69/255, green: 78/255, blue: 48/255, alpha: 1.0)
+		desclbl.textAlignment = NSTextAlignment.Center
+		desclbl.backgroundColor = UIColor.clearColor()
+		desclbl.font = UIFont(name: "HelveticaNeue", size: CGFloat(14))
+		self.addSubview(desclbl)
+		
 		self.createButton()
 	}
 	
@@ -39,28 +57,6 @@ class nameView: UIView {
 		self.btn.titleLabel!.textAlignment = NSTextAlignment.Center
 		self.addSubview(btn)
 	}
-	
-	func createTitle() {
-		
-		let titlelbl = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 100))
-		titlelbl.text = "Je totem"
-		
-		titlelbl.textAlignment = NSTextAlignment.Center
-		
-		titlelbl.font = UIFont(name: "HelveticaNeue", size: CGFloat(30))
-		
-		self.addSubview(titlelbl)
-		
-	}
-	
-	func loadImage(name:String) {
-		let image = UIImage(named: "placeHolder")
-		let imageView = UIImageView(image: image)
-		imageView.frame = CGRectMake(0, 100, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height/2.8)
-		imageView.contentMode = UIViewContentMode.ScaleAspectFit
-		self.addSubview(imageView)
-	}
-	
 	
 	required init(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")

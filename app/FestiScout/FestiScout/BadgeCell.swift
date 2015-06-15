@@ -32,7 +32,7 @@ class BadgeCell: UICollectionViewCell {
 		textLabel = UILabel(frame: textFrame)
 		textLabel.lineBreakMode = .ByWordWrapping
 		textLabel.numberOfLines = 0
-		textLabel.font = UIFont.systemFontOfSize(UIFont.smallSystemFontSize())
+		textLabel.font = UIFont(name: "Bariol-Regular", size: 15)
 		textLabel.textAlignment = .Center
 		contentView.addSubview(textLabel)
 	}

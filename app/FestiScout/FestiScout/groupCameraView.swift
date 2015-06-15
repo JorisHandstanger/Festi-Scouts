@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 
+import Alamofire
+import SwiftyJSON
 import AVFoundation
 import CoreImage
 import CoreMedia
@@ -21,6 +23,8 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 	let switchCamera = UISegmentedControl(items: ["Front", "Back"])
 	let capturedImage = UIImageView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 400))
 	let takePhotoButton = UIButton(frame: CGRectMake(100, 500, 100, 40))
+	
+	var APIUrls : NSDictionary = NSDictionary()
 	
 	var previewLayer : AVCaptureVideoPreviewLayer!
 	var videoDataOutput : AVCaptureVideoDataOutput!
@@ -39,6 +43,8 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
+		loadPlist()
+		
 		previewView.backgroundColor = UIColor.blackColor()
 		self.addSubview(self.previewView)
 		
@@ -56,6 +62,11 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 		self.startCapture()
 	}
 	
+	func loadPlist(){
+		var plistPath = NSBundle.mainBundle().URLForResource("APIUrls", withExtension: "plist")
+		self.APIUrls = NSDictionary(contentsOfURL: plistPath!) as! Dictionary<String, String>
+	}
+	
 	func takePicture(sender: UIButton!) {
 		if(!self.photoLocked){
 			println("take picture")
@@ -70,12 +81,39 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 						
 						var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
 						self.capturedImage.image = image
+						UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+						
+						self.uploadPicture(image!)
 					}
 				})
 			}
 			videoDataOutput.connectionWithMediaType(AVMediaTypeVideo).enabled = true
 			
 		}
+	}
+	
+	func uploadPicture(image:UIImage){
+		
+		let imageData:NSData = NSData(data: UIImageJPEGRepresentation(image, 1.0))
+		SRWebClient.POST(self.APIUrls["upload"]! as! String)
+			.data(imageData, fieldName:"file", data:["userId":String(NSUserDefaults.standardUserDefaults().integerForKey("userId")),"badgeId":"9"])
+			.send({(response:AnyObject!, status:Int) -> Void in
+				
+		
+				let data = [
+					"userId": String(NSUserDefaults.standardUserDefaults().integerForKey("userId")),
+					"badgeId": "9",
+					"image": String(NSUserDefaults.standardUserDefaults().integerForKey("userId")) + "_9.jpg"
+				]
+				
+				Alamofire.request(.POST, self.APIUrls["completed"]! as! String, parameters: data).responseJSON{(_, _, data, _) in
+					
+					NSNotificationCenter.defaultCenter().postNotificationName("reload", object: self)
+					
+				}
+				},failure:{(error:NSError!) -> Void in
+					//process failure response
+			})
 	}
 	
 	func startCapture() {
@@ -229,7 +267,6 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 		
 		var features = faceDetector.featuresInImage(ciImage, options: imageOptions as [NSObject : AnyObject])
 		
-		// get the clean aperture
 		// the clean aperture is a rectangle that defines the portion of the encoded pixel dimensions
 		// that represents image data valid for display.
 		var fdesc : CMFormatDescriptionRef = CMSampleBufferGetFormatDescription(sampleBuffer)
@@ -240,8 +277,6 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 		})
 	}
 	
-	// called asynchronously as the capture output is capturing sample buffers, this method asks the face detector (if on)
-	// to detect features and for each draw the red square in a layer and set appropriate orientation
 	func drawFaceBoxesForFeatures(features : NSArray, clap : CGRect, orientation : UIDeviceOrientation) {
 		
 		var sublayers : NSArray = previewLayer.sublayers
@@ -253,7 +288,7 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 		CATransaction.begin()
 		CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
 		
-		// hide all the face layers
+		// cirkels verbergen
 		for layer in sublayers as! [CALayer] {
 			if (layer.name != nil && layer.name == "FaceLayer") {
 				layer.hidden = true
@@ -281,12 +316,6 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 		let previewBox : CGRect = videoPreviewBoxForGravity(gravity, frameSize: parentFrameSize, apertureSize: clap.size)
 		
 		for ff in features as! [CIFaceFeature] {
-			// set text on label
-			var x : CGFloat = 0.0, y : CGFloat = 0.0
-			
-			// find the correct position for the square layer within the previewLayer
-			// the feature box originates in the bottom left of the video frame.
-			// (Bottom right if mirroring is turned on)
 			var faceRect : CGRect = ff.bounds
 			
 			// flip preview width and height
