@@ -4,7 +4,6 @@ var geenLidView = Backbone.View.extend({
 
 	template: template,
 	tagName: 'main',
-	className: "cd-main-content",
 
 	events: {
 

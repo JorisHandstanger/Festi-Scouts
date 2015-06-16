@@ -24,6 +24,7 @@
 		A9A82F1B1B189070002A1896 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A82F1A1B189070002A1896 /* MainViewController.swift */; };
 		A9B260A01B2E5B2300C95EBF /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2609F1B2E5B2300C95EBF /* PinData.swift */; };
 		A9B260A21B2F2A3400C95EBF /* SRWebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B260A11B2F2A3400C95EBF /* SRWebClient.swift */; };
+		A9B260A41B30103E00C95EBF /* EedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B260A31B30103E00C95EBF /* EedView.swift */; };
 		A9C1F6171B1682E200660FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6161B1682E200660FBA /* AppDelegate.swift */; };
 		A9C1F6191B1682E200660FBA /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1F6181B1682E200660FBA /* FirstLaunchViewController.swift */; };
 		A9C1F61B1B1682E200660FBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C1F61A1B1682E200660FBA /* Images.xcassets */; };
@@ -63,6 +64,7 @@
 		A9A82F1A1B189070002A1896 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A9B2609F1B2E5B2300C95EBF /* PinData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
 		A9B260A11B2F2A3400C95EBF /* SRWebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRWebClient.swift; sourceTree = "<group>"; };
+		A9B260A31B30103E00C95EBF /* EedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EedView.swift; sourceTree = "<group>"; };
 		A9BDB6B81B2A4C9F003BF59A /* FestiScouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestiScouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BDB6B91B2A4C9F003BF59A /* FestiScoutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FestiScoutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C1F6151B1682E200660FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				A94EB2741B21944400AECFB2 /* Challenges */,
 				A91112301B1B933100345192 /* CardView.swift */,
 				A9EF9DF11B2C87CF00B30950 /* DetailViewController.swift */,
+				A9B260A31B30103E00C95EBF /* EedView.swift */,
 			);
 			name = FestiScouts;
 			path = FestiScout;
@@ -370,6 +373,7 @@
 				A96DDA171B19F6DD0077B02F /* BadgeCell.swift in Sources */,
 				A94EB2771B21B77800AECFB2 /* nameView.swift in Sources */,
 				A96DDA1B1B1A590D0077B02F /* mapDrawView.swift in Sources */,
+				A9B260A41B30103E00C95EBF /* EedView.swift in Sources */,
 				A9EE62611B27AB6100B463B8 /* groupCameraView.swift in Sources */,
 				A9A82F1B1B189070002A1896 /* MainViewController.swift in Sources */,
 				A9C1F6191B1682E200660FBA /* FirstLaunchViewController.swift in Sources */,

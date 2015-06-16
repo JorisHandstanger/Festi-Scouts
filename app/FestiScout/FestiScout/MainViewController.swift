@@ -44,7 +44,7 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 		self.navigationController?.navigationBar.addSubview(self.badgeCountView)
 		
 		// Checken of er een users in de userDefaults zit, indien niet -> nieuwe user
-		
+		println(UIScreen.mainScreen().bounds.width)
 		if(!NSUserDefaults.standardUserDefaults().boolForKey("userSaved")){
 			self.navigationController!.pushViewController(FirstLaunchMainViewController(), animated:false)
 		}else{
@@ -53,7 +53,7 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 			completedBadgesRequest.responseJSON{(_, _, data, _) in
 				var json = JSON(data!)
 				self.CompletedBadgesArray = self.createFromJSONData(json, checkBadge: false)
-				
+				println(self.CompletedBadgesArray.count)
 				// Badge count
 				let badgeCountImageView = UIImageView(frame: CGRectMake(0, 0, 48, 44))
 				badgeCountImageView.image = UIImage(named: "badgesCount")
@@ -76,12 +76,6 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 	func loadPlist(){
 		var plistPath = NSBundle.mainBundle().URLForResource("APIUrls", withExtension: "plist")
 		self.APIUrls = NSDictionary(contentsOfURL: plistPath!) as! Dictionary<String, String>
-	}
-
-	override func viewDidAppear(animated: Bool) {
-		UIView.animateWithDuration(0.1, animations: {
-			self.badgeCountView.alpha = 1
-		})
 	}
 	
 	func loadBadges(){
@@ -126,6 +120,14 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 			self.lidKaart?.layer.shadowOffset = CGSizeMake(10, 10)
 			self.lidKaart?.layer.shadowRadius = 9
 			self.lidKaart?.layer.shadowOpacity = 0.6
+			
+			// leiding
+			if((self.CompletedBadgesArray.count >= 2) && (NSUserDefaults.standardUserDefaults().stringForKey("rang") != "leiding") ){
+				
+				let eedView = EedView(frame: CGRectMake(0, UIScreen.mainScreen().bounds.height, 320, 474), navigationController: self.navigationController!, urls: self.APIUrls)
+				self.view.addSubview(eedView)
+				
+			}
 		}
 	}
 	
@@ -135,6 +137,8 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 	
 	func reloadData(){
 		println("reload")
+		self.badgeCountView.subviews.map({ $0.removeFromSuperview() })
+		self.badgeCountView.removeFromSuperview()
 		self.viewDidLoad()
 	}
  

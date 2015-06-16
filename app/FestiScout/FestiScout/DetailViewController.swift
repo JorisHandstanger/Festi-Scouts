@@ -22,12 +22,15 @@ class DetailViewController: UIViewController {
 	}
 	
 	func popToRoot(sender:UIBarButtonItem){
+		let badgecount = self.navigationController?.navigationBar.subviews.filter { ($0 as! UIView).frame == CGRectMake(0, 0, 49, 44) }
+		let result = badgecount?.first as! UIView
+		result.alpha = 1
 		self.navigationController!.popToRootViewControllerAnimated(true)
 	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+		self.navigationController?.navigationBarHidden = false
 		let badgecount = self.navigationController?.navigationBar.subviews.filter { ($0 as! UIView).frame == CGRectMake(0, 0, 49, 44) }
 		let result = badgecount?.first as! UIView
 		result.alpha = 0

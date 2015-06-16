@@ -94,9 +94,19 @@ class FirstLaunchMainViewController: UIViewController {
 			NSUserDefaults.standardUserDefaults().setObject(rang, forKey: "rang")
 			NSUserDefaults.standardUserDefaults().synchronize()
 			
-			println("[ViewController] Loading slider view")
-			var bounds = UIScreen.mainScreen().bounds
-			self.view = TutorialView(frame: bounds, navigationController: self.navigationController!)
+			let data = [
+				"userId": String(NSUserDefaults.standardUserDefaults().integerForKey("userId")),
+				"badgeId": "1",
+				"image": ""
+			]
+			
+			Alamofire.request(.POST, self.APIUrls["completed"]! as! String, parameters: data).responseJSON{(_, _, data, _) in
+				
+				println("[ViewController] Loading slider view")
+				var bounds = UIScreen.mainScreen().bounds
+				self.view = TutorialView(frame: bounds, navigationController: self.navigationController!)
+				
+			}
 			
 		}
 	}

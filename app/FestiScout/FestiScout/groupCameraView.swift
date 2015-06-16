@@ -20,10 +20,9 @@ import AssetsLibrary
 class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 	
 	let previewView = UIView(frame: CGRectMake(0, 10, UIScreen.mainScreen().bounds.width, 500))
-	let switchCamera = UISegmentedControl(items: ["Front", "Back"])
-	let capturedImage = UIImageView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 400))
-	let takePhotoButton = UIButton(frame: CGRectMake(100, 500, 100, 40))
-	
+	let switchCamera = UIButton(frame: CGRectMake(30, 500, 50, 36))
+	let capturedImage = UIImageView(frame: CGRectMake(0, 44, UIScreen.mainScreen().bounds.width, 427))
+	let takePhotoButton = UIButton(frame: CGRectMake((UIScreen.mainScreen().bounds.width / 2) - 66, UIScreen.mainScreen().bounds.height - 143, 133, 143))
 	var APIUrls : NSDictionary = NSDictionary()
 	
 	var previewLayer : AVCaptureVideoPreviewLayer!
@@ -38,6 +37,7 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 	var beginGestureScale : CGFloat!
 	var effectiveScale : CGFloat!
 	var photoLocked : Bool! = true
+	var locked : Bool! = false
 	
 	// MARKS: Actions
 	override init(frame: CGRect) {
@@ -48,14 +48,17 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 		previewView.backgroundColor = UIColor.blackColor()
 		self.addSubview(self.previewView)
 		
-		self.switchCamera.selectedSegmentIndex = 0
-		self.switchCamera.frame = CGRectMake(0, 500, 80, 40)
-		self.switchCamera.addTarget(self, action: "switchCameras:", forControlEvents: .ValueChanged)
+		let bar = UIImageView(frame: CGRectMake(0, (UIScreen.mainScreen().bounds.height - 128), UIScreen.mainScreen().bounds.width, 128))
+		bar.image = UIImage(named: "bar")
+		self.addSubview(bar)
+		
+		self.switchCamera.setBackgroundImage(UIImage(named: "flipbtn"), forState: UIControlState.Normal)
+		self.switchCamera.addTarget(self, action: "switchCameras:", forControlEvents: .TouchUpInside)
 		self.addSubview(self.switchCamera)
 		
 		self.addSubview(self.capturedImage)
 		
-		self.takePhotoButton.backgroundColor = UIColor.redColor()
+		self.takePhotoButton.setBackgroundImage(UIImage(named: "countingbutton"), forState: UIControlState.Normal)
 		self.takePhotoButton.addTarget(self, action: "takePicture:", forControlEvents: .TouchUpInside)
 		self.addSubview(self.takePhotoButton)
 		
@@ -68,7 +71,7 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 	}
 	
 	func takePicture(sender: UIButton!) {
-		if(!self.photoLocked){
+		if(!self.photoLocked && !self.locked){
 			println("take picture")
 			videoDataOutput.connectionWithMediaType(AVMediaTypeVideo).enabled = false
 			if let videoConnection = self.stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
@@ -80,6 +83,7 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 						var cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, kCGRenderingIntentDefault)
 						
 						var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+						self.locked = true
 						self.capturedImage.image = image
 						UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
 						
@@ -96,14 +100,13 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 		
 		let imageData:NSData = NSData(data: UIImageJPEGRepresentation(image, 1.0))
 		SRWebClient.POST(self.APIUrls["upload"]! as! String)
-			.data(imageData, fieldName:"file", data:["userId":String(NSUserDefaults.standardUserDefaults().integerForKey("userId")),"badgeId":"9"])
+			.data(imageData, fieldName:"file", data:["userId":String(NSUserDefaults.standardUserDefaults().integerForKey("userId")),"badgeId":"6"])
 			.send({(response:AnyObject!, status:Int) -> Void in
-				
-		
+	
 				let data = [
 					"userId": String(NSUserDefaults.standardUserDefaults().integerForKey("userId")),
-					"badgeId": "9",
-					"image": String(NSUserDefaults.standardUserDefaults().integerForKey("userId")) + "_9.jpg"
+					"badgeId": "6",
+					"image": String(NSUserDefaults.standardUserDefaults().integerForKey("userId")) + "_6.jpg"
 				]
 				
 				Alamofire.request(.POST, self.APIUrls["completed"]! as! String, parameters: data).responseJSON{(_, _, data, _) in
@@ -111,8 +114,9 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 					NSNotificationCenter.defaultCenter().postNotificationName("reload", object: self)
 					
 				}
-				},failure:{(error:NSError!) -> Void in
-					//process failure response
+				
+			},failure:{(error:NSError!) -> Void in
+				//process failure response
 			})
 	}
 	
@@ -299,16 +303,17 @@ class groupCameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
 			CATransaction.commit()
 			return
 		}
-		
-		if ( features.count >= 3){
-			self.takePhotoButton.backgroundColor = UIColor.greenColor()
-			self.photoLocked = false
+		if(!self.locked){
+			if ( features.count >= 3){
+				self.takePhotoButton.setBackgroundImage(UIImage(named: "fotoButton"), forState: UIControlState.Normal)
+				self.photoLocked = false
+			}else{
+				self.takePhotoButton.setBackgroundImage(UIImage(named: "countingbutton"), forState: UIControlState.Normal)
+				self.photoLocked = true
+			}
 		}else{
-			self.takePhotoButton.backgroundColor = UIColor.redColor()
-			self.photoLocked = true
+			self.takePhotoButton.setBackgroundImage(UIImage(named: "fotoconfirm"), forState: UIControlState.Normal)
 		}
-		
-		//println(features.count)
 		
 		var parentFrameSize : CGSize = previewView.frame.size
 		var gravity : NSString = previewLayer.videoGravity

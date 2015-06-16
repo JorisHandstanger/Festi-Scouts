@@ -5,7 +5,6 @@ var HomeView = Backbone.View.extend({
 
 	template: template,
 	tagName: 'section',
-	className: 'queue',
 
 	events: {
 		'mouseover .yes': 'hoverYes',

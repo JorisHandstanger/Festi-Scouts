@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FestiScout/groupCameraView.swift"
-            timestampString = "456089185.927221"
+            timestampString = "456121362.280192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "takePicture(_:)"
             landmarkType = "5">
          </BreakpointContent>

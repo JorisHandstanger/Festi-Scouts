@@ -1,4 +1,5 @@
 var template = require('../../../_hbs/lid.hbs');
+var BadgesCollection = require('../collections/BadgesCollection.js');
 
 var lidView = Backbone.View.extend({
 
@@ -7,7 +8,7 @@ var lidView = Backbone.View.extend({
 	className: "cd-main-content",
 
 	events: {
-
+		"click .add": "clickAdd",
 	},
 
 	initialize: function(){
@@ -20,6 +21,10 @@ var lidView = Backbone.View.extend({
 
 		this.$el.html(this.template());
 		return this;
+
+	},
+
+	byUser: function(){
 
 	}
 

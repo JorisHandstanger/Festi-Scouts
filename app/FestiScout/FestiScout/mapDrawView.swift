@@ -9,9 +9,11 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
 
 class mapDrawView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
 	
+	var APIUrls : NSDictionary = NSDictionary()
 	var manager:CLLocationManager!
 	var myLocations: [CLLocation] = []
 	var coordinates: [CLLocationCoordinate2D] = []
@@ -19,9 +21,14 @@ class mapDrawView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
 	var MapView:MKMapView!
 	var distanceRan:CLLocationDistance = 0
 	var nextPoint:Int = 0
+	let notificationView = UIView(frame: CGRectMake(10, 400, 300, 150))
+	let notLbl = UILabel(frame: CGRectMake(90, 6, 200, 30))
+	var done : Bool = false
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		
+		loadPlist()
 		
 		manager = CLLocationManager()
 		manager.delegate = self
@@ -30,10 +37,6 @@ class mapDrawView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
 		manager.startUpdatingLocation()
 		
 		MapView = MKMapView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width,UIScreen.mainScreen().bounds.height))
-		MapView.delegate = self
-		MapView.mapType = MKMapType.Standard
-		MapView.showsUserLocation = true
-		
 		
 		self.coordinates.append(CLLocationCoordinate2DMake(+37.33069642,-122.03066881))
 		self.coordinates.append(CLLocationCoordinate2DMake(+37.33045275,-122.02953296))
@@ -47,7 +50,69 @@ class mapDrawView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
 		
 		self.addSubview(MapView)
 		
+		let notificationIV = UIImageView(frame: CGRectMake(0, 0, 300, 150))
+		notificationIV.image = UIImage(named: "notification")
+		self.notificationView.addSubview(notificationIV)
+	
+		self.notLbl.text = "Ga naar punt 1 om te starten!"
+		self.notLbl.textColor = UIColor(red:69/255, green:78/255,blue:48/255,alpha:1.0)
+		self.notLbl.font = UIFont(name: "brooklyncofferegular", size: 14)
+		self.notificationView.addSubview(self.notLbl)
+		
+		self.addSubview(self.notificationView)
+		
+		let bar = UIImageView(frame: CGRectMake(0, (UIScreen.mainScreen().bounds.height - 70), UIScreen.mainScreen().bounds.width, 70))
+		bar.image = UIImage(named: "bar")
+		self.addSubview(bar)
+		
+		MapView.delegate = self
+		MapView.mapType = MKMapType.Standard
+		MapView.showsUserLocation = true
+		
 	}
+	
+	func loadPlist(){
+		var plistPath = NSBundle.mainBundle().URLForResource("APIUrls", withExtension: "plist")
+		self.APIUrls = NSDictionary(contentsOfURL: plistPath!) as! Dictionary<String, String>
+	}
+	
+	func screenShotMethod() {
+		if(!self.done){
+		UIGraphicsBeginImageContext(self.frame.size)
+		self.layer.renderInContext(UIGraphicsGetCurrentContext())
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+
+		UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+		self.uploadPicture(image!)
+		}
+		self.done = true
+	}
+	
+	func uploadPicture(image:UIImage){
+		
+		let imageData:NSData = NSData(data: UIImageJPEGRepresentation(image, 1.0))
+		SRWebClient.POST(self.APIUrls["upload"]! as! String)
+			.data(imageData, fieldName:"file", data:["userId":String(NSUserDefaults.standardUserDefaults().integerForKey("userId")),"badgeId":"6"])
+			.send({(response:AnyObject!, status:Int) -> Void in
+				
+				let data = [
+					"userId": String(NSUserDefaults.standardUserDefaults().integerForKey("userId")),
+					"badgeId": "4",
+					"image": String(NSUserDefaults.standardUserDefaults().integerForKey("userId")) + "_4.jpg"
+				]
+				
+				Alamofire.request(.POST, self.APIUrls["completed"]! as! String, parameters: data).responseJSON{(_, _, data, _) in
+					
+					NSNotificationCenter.defaultCenter().postNotificationName("reload", object: self)
+					
+				}
+				
+				},failure:{(error:NSError!) -> Void in
+					//process failure response
+			})
+	}
+
 	
 	func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
 		var currentLocation = locations[0] as! CLLocation
@@ -58,12 +123,14 @@ class mapDrawView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
 		
 		
 		if(self.pins.count == self.nextPoint){
-			println("done")
+			self.notificationView.alpha = 1.0
+			self.notLbl.text = "'t Is gelukt!"
+			screenShotMethod()
+			
 		}else{
 			var locationFromPoint = CLLocation(coordinate: self.pins[self.nextPoint].coordinate, altitude: 1, horizontalAccuracy: 1, verticalAccuracy: -1, timestamp: nil)
 			var pointDist:CLLocationDistance = locationFromPoint.distanceFromLocation(currentLocation)
 			
-			println(pointDist)
 			if(pointDist <= 10 || pointDist == 0) {
 				self.pins[self.nextPoint].done = true
 				var pins = self.pins
@@ -74,7 +141,9 @@ class mapDrawView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
 						view.image = UIImage(named:"anComp")
 					}
 				}
-				
+				if(self.nextPoint == 0){
+					self.notificationView.alpha = 0
+				}
 				println(self.nextPoint)
 				self.nextPoint++
 			}
@@ -104,7 +173,7 @@ class mapDrawView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
 		
 		if overlay is MKPolyline {
 			var polylineRenderer = MKPolylineRenderer(overlay: overlay)
-			polylineRenderer.strokeColor = UIColor.blueColor()
+			polylineRenderer.strokeColor = UIColor(red: 228/255, green: 80/255, blue: 51/255, alpha: 1.0)
 			polylineRenderer.lineWidth = 4
 			return polylineRenderer
 		}
