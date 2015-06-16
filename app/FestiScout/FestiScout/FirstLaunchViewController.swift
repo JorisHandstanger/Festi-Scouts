@@ -17,9 +17,11 @@ class FirstLaunchMainViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.loadPlist()
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "popController", name: "tutorialComplete", object: nil)
+		
 		self.getTotem()
 		self.navigationController?.navigationBarHidden = true
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "popController", name: "tutorialComplete", object: nil)
 		
 	}
 	
@@ -30,13 +32,6 @@ class FirstLaunchMainViewController: UIViewController {
 	
 	func popController(){
 		self.navigationController?.popToRootViewControllerAnimated(true)
-	}
-	
-	override func loadView() {
-		println("[ViewController] Loading slider view")
-		var bounds = UIScreen.mainScreen().bounds
-		self.view = TutorialView(frame: bounds, navigationController: self.navigationController!)
-		
 	}
 	
 	func getTotem(){
@@ -65,9 +60,11 @@ class FirstLaunchMainViewController: UIViewController {
 	}
 	
 	func createUser(totem:String, karakter:String, dier:String){
-		var karakterImage:String = karakter.stringByReplacingOccurrencesOfString(" ", withString: "") + ".png"
-		var dierImage:String = dier.stringByReplacingOccurrencesOfString(" ", withString: "") + ".png"
-		println("Jouw totem: " + totem)
+		var karakterImage:String = karakter.stringByReplacingOccurrencesOfString(" ", withString: "-")
+		karakterImage = karakterImage.lowercaseString
+		
+		var dierImage:String = dier.stringByReplacingOccurrencesOfString(" ", withString: "-")
+		dierImage = dierImage.lowercaseString
 		
 		let data = [
 			"totem": totem,
@@ -82,8 +79,11 @@ class FirstLaunchMainViewController: UIViewController {
 			var json = JSON(data!)
 			
 			var userId:Int = json["id"].intValue
+			var rang:NSString = json["rang"].stringValue
 			var userTotem:NSString = json["totem"].stringValue
 			var userFrontImage:NSString = json["animalImage"].stringValue
+			userFrontImage = userFrontImage.lowercaseString
+			
 			var userBackImage:NSString = json["backImage"].stringValue
 			
 			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "userSaved")
@@ -91,7 +91,12 @@ class FirstLaunchMainViewController: UIViewController {
 			NSUserDefaults.standardUserDefaults().setObject(userTotem, forKey: "userTotem")
 			NSUserDefaults.standardUserDefaults().setObject(userFrontImage, forKey: "userFrontImage")
 			NSUserDefaults.standardUserDefaults().setObject(userBackImage, forKey: "userBackImage")
+			NSUserDefaults.standardUserDefaults().setObject(rang, forKey: "rang")
 			NSUserDefaults.standardUserDefaults().synchronize()
+			
+			println("[ViewController] Loading slider view")
+			var bounds = UIScreen.mainScreen().bounds
+			self.view = TutorialView(frame: bounds, navigationController: self.navigationController!)
 			
 		}
 	}

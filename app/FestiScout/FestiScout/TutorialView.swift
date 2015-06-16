@@ -63,7 +63,8 @@ class TutorialView: UIView, UIScrollViewDelegate {
 		
 		let pageWidth = scrollView.frame.size.width;
 		let fractionalPage = scrollView.contentOffset.x / pageWidth;
-		let page = Int(floor(fractionalPage));
+		var page = Int(ceil(fractionalPage));
+		if page == 5 { page = 4 }
 		if (self.previousPage != page) {
 			
 			for i in 0 ... 4 {
@@ -84,7 +85,6 @@ class TutorialView: UIView, UIScrollViewDelegate {
 			
 			pageVC.frame = CGRectMake(xPosition, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
 			self.scrollView.addSubview(pageVC)
-			pageVC.btn.addTarget(self, action: "buttonTouched", forControlEvents:UIControlEvents.TouchUpInside)
 			
 			xPosition += UIScreen.mainScreen().bounds.width
 		}
@@ -102,16 +102,9 @@ class TutorialView: UIView, UIScrollViewDelegate {
 	}
 	
 	func nameCompleted() {
-		NSNotificationCenter.defaultCenter().postNotificationName("tutorialComplete", object: self)
-		
 		// Notification uitsturen om de data te herladen op de home pagina
 		NSNotificationCenter.defaultCenter().postNotificationName("reload", object: self)
-	}
-	
-	func buttonTouched() {
-		let scrollPoint = CGPointMake((self.scrollView.contentOffset.x + UIScreen.mainScreen().bounds.width), self.scrollView.contentOffset.y)
-		
-		self.scrollView.setContentOffset(scrollPoint, animated: true)
+		NSNotificationCenter.defaultCenter().postNotificationName("tutorialComplete", object: self)
 	}
 	
 	required init(coder aDecoder: NSCoder) {

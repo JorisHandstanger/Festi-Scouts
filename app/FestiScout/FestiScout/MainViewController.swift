@@ -47,28 +47,28 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 		
 		if(!NSUserDefaults.standardUserDefaults().boolForKey("userSaved")){
 			self.navigationController!.pushViewController(FirstLaunchMainViewController(), animated:false)
-		}
-		
-		// Array maken met de completed badges, daarna alle badges inladen
-		let completedBadgesRequest = Alamofire.request(.GET, (self.APIUrls["badges"]! as! String) + String(NSUserDefaults.standardUserDefaults().integerForKey("userId")))
-		completedBadgesRequest.responseJSON{(_, _, data, _) in
-			var json = JSON(data!)
-			self.CompletedBadgesArray = self.createFromJSONData(json, checkBadge: false)
-			
-			// Badge count
-			let badgeCountImageView = UIImageView(frame: CGRectMake(0, 0, 48, 44))
-			badgeCountImageView.image = UIImage(named: "badgesCount")
-			badgeCountImageView.alpha = 1
-			self.badgeCountView.addSubview(badgeCountImageView)
-			
-			let lblCount = UILabel(frame: CGRectMake(0, 4, 45, 23))
-			lblCount.text = String(self.CompletedBadgesArray.count)
-			lblCount.textColor = UIColor.whiteColor()
-			lblCount.font = UIFont(name: "BigNoodleTitling", size: 23)
-			lblCount.textAlignment =  NSTextAlignment.Center
-			self.badgeCountView.addSubview(lblCount)
-			
-			self.loadBadges()
+		}else{
+			// Array maken met de completed badges, daarna alle badges inladen
+			let completedBadgesRequest = Alamofire.request(.GET, (self.APIUrls["badges"]! as! String) + String(NSUserDefaults.standardUserDefaults().integerForKey("userId")))
+			completedBadgesRequest.responseJSON{(_, _, data, _) in
+				var json = JSON(data!)
+				self.CompletedBadgesArray = self.createFromJSONData(json, checkBadge: false)
+				
+				// Badge count
+				let badgeCountImageView = UIImageView(frame: CGRectMake(0, 0, 48, 44))
+				badgeCountImageView.image = UIImage(named: "badgesCount")
+				badgeCountImageView.alpha = 1
+				self.badgeCountView.addSubview(badgeCountImageView)
+				
+				let lblCount = UILabel(frame: CGRectMake(0, 4, 45, 23))
+				lblCount.text = String(self.CompletedBadgesArray.count)
+				lblCount.textColor = UIColor.whiteColor()
+				lblCount.font = UIFont(name: "BigNoodleTitling", size: 23)
+				lblCount.textAlignment =  NSTextAlignment.Center
+				self.badgeCountView.addSubview(lblCount)
+				
+				self.loadBadges()
+			}
 		}
 		
     }
@@ -121,11 +121,11 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 			self.lidKaart = CardView(frame: CGRectMake(0, self.view.frame.height-35, self.view.frame.width, lidkaartHoogte))
 			self.view.addSubview(self.lidKaart!)
 			
+			self.lidKaart?.lbldebadges.text = String(self.CompletedBadgesArray.count)
 			self.lidKaart?.layer.shadowColor = UIColor.blackColor().CGColor
 			self.lidKaart?.layer.shadowOffset = CGSizeMake(10, 10)
 			self.lidKaart?.layer.shadowRadius = 9
 			self.lidKaart?.layer.shadowOpacity = 0.6
-			
 		}
 	}
 	
